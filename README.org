@@ -6,7 +6,8 @@
   performs a "Blocking Method" to output the mean and standard deviation. For
   more information on the method refernce:
 
-  ~Flyvbjerg, Henrik & Petersen, H.G.. (1989). Error Estimates on Averages of Correlated Data. The Journal of Chemical Physics. 91. 10.1063/1.457480.~
+  ~Flyvbjerg, Henrik & Petersen, H.G.. (1989). Error Estimates on Averages of
+  Correlated Data. The Journal of Chemical Physics. 91. 10.1063/1.457480.~
 
 * Usage
   Right now this method needs to be pulled in by Github see the following
