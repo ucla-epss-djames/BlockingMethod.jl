@@ -4,8 +4,10 @@
 * Description
   This package performs time series analysis on a set of data. The estimator
   performs a "Blocking Method" to output the mean and standard deviation. For
-  more information on the method used refernce:
-  Flyvbjerg and Petersen, J. Chem. Phys., 91, 461, 1989
+  more information on the method refernce:
+  #+BEGIN_SRC org
+    [[https://www.researchgate.net/publication/258024272_Error_Estimates_on_Averages_of_Correlated_Data][Flyvbjerg, Henrik & Petersen, H.G.. (1989). Error Estimates on Averages of Correlated Data. The Journal of Chemical Physics. 91. 10.1063/1.457480.]]
+  #+END_SRC
 
 * Usage
   Right now this method needs to be pulled in by Github see the following
