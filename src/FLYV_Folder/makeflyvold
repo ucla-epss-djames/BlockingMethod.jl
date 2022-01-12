@@ -1,1 +1,0 @@
-gfortran -o flyv -fdefault-real-8 flyvold.f

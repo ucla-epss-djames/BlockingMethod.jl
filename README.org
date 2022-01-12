@@ -1,0 +1,26 @@
+#+TITLE: Blocking.jl
+#+AUTHOR: David James, davidabraham@ucla.edu
+
+* Description
+  This package performs time series analysis on a set of data. The estimator
+  performs a "Blocking Method" to output the mean and standard deviation. For
+  more information on the method used refernce:
+  Flyvbjerg and Petersen, J. Chem. Phys., 91, 461, 1989
+
+* Usage
+  Right now this method needs to be pulled in by Github see the following
+  commands:
+
+  #+BEGIN_SRC julia
+    # adding the package to your environment
+    using Pkg
+    Pkg.add("https://github.com/ucla-epss-djames/Blocking.jl")
+
+    # using the package
+    using Blocking
+
+    # set of data
+    x = rand(1000)
+
+    mn, std = estimate(x)
+  #+END_SRC
