@@ -6,8 +6,18 @@
   performs a "Blocking Method" to output the mean and standard deviation. For
   more information on the method refernce:
 
-  ~Flyvbjerg, Henrik & Petersen, H.G.. (1989). Error Estimates on Averages of
-  Correlated Data. The Journal of Chemical Physics. 91. 10.1063/1.457480.~
+  #+BEGIN_SRC bibtex
+    @article{article,
+    author = {Flyvbjerg, Henrik and Petersen, H.G.},
+    year = {1989},
+    month = {07},
+    pages = {},
+    title = {Error Estimates on Averages of Correlated Data},
+    volume = {91},
+    journal = {The Journal of Chemical Physics},
+    doi = {10.1063/1.457480}
+    }
+  #+END_SRC
 
 * Usage
   Right now this method needs to be pulled in by Github see the following
