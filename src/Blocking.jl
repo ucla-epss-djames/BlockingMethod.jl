@@ -1,4 +1,4 @@
-module Blocking
+module BlockingMethod
 # Author: David James, davidabraham@ucla.edu
 # Reference: Flyvbjerg and Petersen, J. Chem. Phys., 91, 461, 1989
 
