@@ -17,13 +17,11 @@ function estimate(x::AbstractArray)
     n = length(x)
 
     xm = sum(x) / n
-    x2m = sum(x -> x^2, x) / n
+    x2m = sum(y -> y^2, x) / n
     σ = 0
 
-    if n < 2
-        σ = 0
-        @goto fin
-    end
+    # if too small exit out
+    if (n < 2) @goto fin end
 
     # number of bins
     nrbin = log(n) / log(2) - 1
@@ -40,23 +38,20 @@ function estimate(x::AbstractArray)
     for i in 1:nrbin
 
         c = 0
-        fac = 0
         n = floor(Int64, n / 2)
 
         for j in 1:n
             if n != 1
-                fac = 1 / sqrt(2*(n - 1))
                 x[j] = (x[2*j] + x[2*j-1]) / 2
-                c += (x[j] - xm)*(x[j] - xm) / (n * (n - 1))
+                c += (x[j] - xm)^2 / (n * (n - 1))
             end
         end
 
+        fac = 1 / sqrt(2*(n - 1))
         dc = fac*sqrt(c)
         diff = sqrt(c) - sqrt(c_old)
 
-        if abs(diff) < dc && c > c_max
-            c_max = c
-        end
+        if (abs(diff) < dc && c > c_max) c_max = c end
 
         c_old = c
 
