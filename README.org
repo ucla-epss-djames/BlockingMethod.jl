@@ -1,4 +1,4 @@
-#+TITLE: Blocking.jl
+#+TITLE: BlockingMethod.jl
 #+AUTHOR: David James, davidabraham@ucla.edu
 
 * Description
@@ -24,7 +24,7 @@
   of data inputted into ~estimate~.
   #+BEGIN_SRC julia
     # using the package
-    using Blocking
+    using BlockingMethod
 
     # set of data
     x = rand(1000)
