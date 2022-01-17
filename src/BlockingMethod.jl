@@ -16,19 +16,9 @@ function estimate(x::AbstractArray)
 
     n = length(x)
 
-    xm = 0
-    x2m = 0
+    xm = sum(x) / n
+    x2m = sum(x -> x^2, x) / n
     σ = 0
-
-    for i in 1:n
-
-        xm += x[i]
-        x2m += x[i]^2
-
-    end
-
-    xm /= n
-    x2m /= n
 
     if n < 2
         σ = 0
