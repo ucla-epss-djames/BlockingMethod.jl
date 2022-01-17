@@ -20,14 +20,9 @@
   #+END_SRC
 
 * Usage
-  Right now this method needs to be pulled in by Github see the following
-  commands:
-
+  The method returns two values, the mean and standard deviation for the set
+  of data inputted into ~estimate~.
   #+BEGIN_SRC julia
-    # adding the package to your environment
-    using Pkg
-    Pkg.add("https://github.com/ucla-epss-djames/Blocking.jl")
-
     # using the package
     using Blocking
 
