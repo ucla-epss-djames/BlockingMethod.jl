@@ -8,7 +8,7 @@ export estimate
     estimate(x::AbstractArray)
 
 Performs time series analysis on the `x` column of data outputting
-the mean and standard deviation.
+the mean and standard error.
 
 Reference Flyvbjerb and Petersen '89 for more info.
 """

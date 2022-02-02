@@ -3,7 +3,7 @@
 
 * Description
   This package performs time series analysis on a set of data. The estimator
-  performs a "Blocking Method" to output the mean and standard deviation. For
+  performs a "Blocking Method" to output the mean and standard error. For
   more information on the method refernce:
 
   #+BEGIN_SRC bibtex
@@ -20,7 +20,7 @@
   #+END_SRC
 
 * Usage
-  The method returns two values, the mean and standard deviation for the set
+  The method returns two values, the mean and standard error for the set
   of data inputted into ~estimate~.
   #+BEGIN_SRC julia
     # using the package
@@ -29,5 +29,5 @@
     # set of data
     x = rand(1000)
 
-    mn, std = estimate(x)
+    mn, ste = estimate(x)
   #+END_SRC
