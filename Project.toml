@@ -1,7 +1,7 @@
 name = "BlockingMethod"
 uuid = "d9bca9eb-1e72-4788-bb56-3426fa9acbbd"
 authors = ["David James <davidabraham@ucla.edu>"]
-version = "0.1.0"
+version = "1.0.0"
 
 [compat]
 julia = "1.7"

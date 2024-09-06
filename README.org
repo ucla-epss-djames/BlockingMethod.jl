@@ -2,9 +2,10 @@
 #+AUTHOR: David James, davidabraham@ucla.edu
 
 * Description
-  This package performs time series analysis on a set of data. The estimator
-  performs a "Blocking Method" to output the mean and standard error. For
-  more information on the method refernce:
+  This package performs time series analysis on a set of data that may be highly
+  correlated. The estimator performs a "Blocking Method" to output the true mean
+  and standard error (variance) for a given column of data. For more information
+  on the method refernce:
 
   #+BEGIN_SRC bibtex
     @article{article,
@@ -20,8 +21,8 @@
   #+END_SRC
 
 * Usage
-  The method returns two values, the mean and standard error for the set
-  of data inputted into ~estimate~.
+  The function ~estimate~ returns two values: the mean and variance. Insert a
+  `Vector` of `Float64` to recieve the statistics of that column.
   #+BEGIN_SRC julia
     # using the package
     using BlockingMethod
