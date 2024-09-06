@@ -22,7 +22,7 @@
 
 * Usage
   The function ~estimate~ returns two values: the mean and variance. Insert a
-  `Vector` of `Float64` to recieve the statistics of that column.
+  ~Vector~ of ~Float64~ to recieve the statistics of that column.
   #+BEGIN_SRC julia
     # using the package
     using BlockingMethod
