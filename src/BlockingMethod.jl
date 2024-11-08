@@ -31,7 +31,7 @@ function estimate(x::Vector{Float64})::NTuple{2, Float64}
     nrbin = log(fn) / log(2) - 1.
 
     c_max = (x2m - xm^2) / (fn - 1.)
-    fac = 1 / sqrt(2*fn - 2.)
+    fac = 1. / sqrt(2. * fn - 2.)
 
     dc = fac * c_max
 
@@ -48,7 +48,7 @@ function estimate(x::Vector{Float64})::NTuple{2, Float64}
             if(n == 1)
                 continue
             else
-                fac = 1 / sqrt(2*fn - 2.)
+                fac = 1. / sqrt(2. * fn - 2.)
                 x[j] = (x[2*j] + x[2*j-1]) / 2.
                 c += (x[j] - xm)^2 / (fn^2 - fn)
             end
