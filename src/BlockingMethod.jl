@@ -5,7 +5,7 @@ module BlockingMethod
 export estimate
 
 """
-    estimate(x::Vector{Float64})::NTuple{2, Float64}
+    estimate(x::AbstractVector{<:Float64})::NTuple{2, Float64}
 
 Performs time series analysis on the `x` column of data outputting
 the mean and standard error (variance).
@@ -15,7 +15,7 @@ We describe how the true statistical error on an average of correlated data
 can be obtained with ease and efficiency by renormalization group method [...]
 Reference article https://doi.org/10.1063/1.457480 for more info.
 """
-function estimate(x::Vector{Float64})::NTuple{2, Float64}
+function estimate(x::AbstractVector{<:Float64})::NTuple{2, Float64}
 
     n = length(x)
     fn = Float64(n)
@@ -25,13 +25,16 @@ function estimate(x::Vector{Float64})::NTuple{2, Float64}
     σ = 0.0
 
     # if too small exit out
-    if (n < 2) @goto fin end
+    if n < 2
+        # Handle edge case where there are too few points.
+        return (xm, σ)
+    end
 
     # number of bins
-    nrbin = log(fn) / log(2) - 1.
+    nrbin = log(fn) / log(2) - 1.0
 
-    c_max = (x2m - xm^2) / (fn - 1.)
-    fac = 1. / sqrt(2. * fn - 2.)
+    c_max = (x2m - xm^2) / (fn - 1.0)
+    fac = 1. / sqrt(2. * fn - 2.0)
 
     dc = fac * c_max
 
@@ -48,8 +51,8 @@ function estimate(x::Vector{Float64})::NTuple{2, Float64}
             if(n == 1)
                 continue
             else
-                fac = 1. / sqrt(2. * fn - 2.)
-                x[j] = (x[2*j] + x[2*j-1]) / 2.
+                fac = 1. / sqrt(2.0 * fn - 2.0)
+                x[j] = (x[2*j] + x[2*j-1]) / 2.0
                 c += (x[j] - xm)^2 / (fn^2 - fn)
             end
         end
@@ -65,7 +68,6 @@ function estimate(x::Vector{Float64})::NTuple{2, Float64}
 
     σ = sqrt(c_max)
 
-    @label fin
     return (xm, σ)
 end
 
