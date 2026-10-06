@@ -1,5 +1,5 @@
 #+TITLE: BlockingMethod.jl
-#+AUTHOR: David James, davidabraham@ucla.edu
+#+AUTHOR: David James, djames@epss.ucla.edu
 
 * Description
   This package performs time series analysis on a set of data that may be highly
@@ -21,8 +21,8 @@
   #+END_SRC
 
 * Usage
-  The function ~estimate~ returns two values: the mean and variance. Insert a
-  ~Vector~ of ~Float64~ to recieve the statistics of that column.
+  The function ~block_mean~ returns two values: the mean and variance. Insert a
+  ~Vector~ to recieve the statistics of that column.
   #+BEGIN_SRC julia
     # using the package
     using BlockingMethod
@@ -30,5 +30,5 @@
     # set of data
     x = rand(1000)
 
-    mn, ste = estimate(x)
+    mn, ste = block_mean(x)
   #+END_SRC
