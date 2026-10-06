@@ -4,6 +4,7 @@ module BlockingMethod
 
 export block_mean
 
+# version 1.0.1
 Base.@deprecate estimate(x) block_mean(x)
 
 """
