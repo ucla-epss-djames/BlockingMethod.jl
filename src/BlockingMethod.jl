@@ -1,21 +1,32 @@
 module BlockingMethod
-# Author: David James, davidabraham@ucla.edu
+# Author: David James, djames@epss.ucla.edu
 # Reference: Flyvbjerg and Petersen, J. Chem. Phys., 91, 461, 1989
 
-export estimate
+export block_mean
+
+Base.@deprecate estimate(x) block_mean(x)
 
 """
-    estimate(x::AbstractVector{<:Float64})::NTuple{2, Float64}
+    block_mean(x) -> (mean, σ)
 
-Performs time series analysis on the `x` column of data outputting
-the mean and standard error (variance).
+Mean of a correlated series with its Flyvbjerg–Petersen blocking error.
+Does not modify `x`.
+"""
+block_mean(x::AbstractVector{<:Real}) = block_mean!(collect(Float64, x))
+
+"""
+    block_mean(x::AbstractVector{<:Float64})::NTuple{2, Float64}
+
+Same as `block_mean`, but uses `x` as workspace. On return, `x` holds block
+averages instead of the original series. Use it only when you don't need `x`
+afterwards and want to skip the copy.
 
 # Flyvbjerb and Petersen 1989 - Abstract
 We describe how the true statistical error on an average of correlated data
 can be obtained with ease and efficiency by renormalization group method [...]
 Reference article https://doi.org/10.1063/1.457480 for more info.
 """
-function estimate(x::AbstractVector{<:Float64})::NTuple{2, Float64}
+function block_mean!(x::AbstractVector{<:Float64})::NTuple{2, Float64}
 
     n = length(x)
     fn = Float64(n)
